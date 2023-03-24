@@ -1,27 +1,31 @@
-# CaDataLayer
+# Clean Architecture Data Layer Setup
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+This is a sample project to show how to setup a data layer in a clean architecture project.
 
-## Development server
+# Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This is a simple app that lets the user browser available fruits and see their details. The user can also add a fruit.
 
-## Code scaffolding
+# Core and Data
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The relationship between core and data layers is always very simple: Core wants, Data gives.
 
-## Build
+How data manages to get data does NOT matter to core.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Setting Up Core to Deal With Data Sources
 
-## Running unit tests
+Data will have to deal with many different sources. Each of those could have different models for how they accept and return data.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+It's data's job tod deal with all that and return to core the data it needs in the type it needs. This is achieved in the following way:
 
-## Running end-to-end tests
+## Setting Up Data Sources
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Let's say we have been provided with an API and we know its models. When we create a data source, called say `RemoteDataSource`, we set it up to return the models we know the API will return, not core Entities. We call these models `Response` models
 
-## Further help
+The same thing goes for the data sources inputs. We create models for the requests we need to make to the API, and we call them `Request` models.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## The Realtionship between Repository and Data Sources
+
+Repo maps from data source using `Mappers` and returns the type that core needs
+
+That's it!
