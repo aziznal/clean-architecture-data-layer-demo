@@ -2,13 +2,13 @@ import { FruitRepository } from '../fruit-repository';
 import { FruitEntity } from './../entities/fruit-entity.model';
 
 export abstract class GetFruitsUseCase {
-  abstract getFruits(): Promise<FruitEntity[]>;
+  abstract execute(): Promise<FruitEntity[]>;
 }
 
 export class GetFruitsUseCaseImpl implements GetFruitsUseCase {
   constructor(private fruitRepository: FruitRepository) {}
 
-  async getFruits(): Promise<FruitEntity[]> {
+  async execute(): Promise<FruitEntity[]> {
     // TODO: change to use repo
     // return this.fruitRepository.getFruits();
 

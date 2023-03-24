@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>Create a New Fruit</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="formGroup" class="form">
+    <!-- Name Form -->
+    <mat-form-field appearance="outline">
+      <input matInput placeholder="Name" formControlName="name" />
+
+      <mat-error *ngIf="formGroup.get('name')?.hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Description Form -->
+    <mat-form-field appearance="outline">
+      <textarea
+        matInput
+        placeholder="Description"
+        formControlName="description"
+      ></textarea>
+
+      <mat-error *ngIf="formGroup.get('description')?.hasError('required')">
+        Description is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Price per Kilo -->
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        placeholder="Price per Kilo"
+        formControlName="pricePerKilo"
+      />
+
+      <mat-error *ngIf="formGroup.get('pricePerKilo')?.hasError('required')">
+        Price per Kilo is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Thumbnail Form -->
+    <mat-form-field appearance="outline">
+      <input matInput placeholder="Thumbnail" formControlName="thumbnailUrl" />
+
+      <mat-error *ngIf="formGroup.get('thumbnail')?.hasError('required')">
+        Thumbnail is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions style="display: flex; justify-content: flex-end">
+  <button mat-flat-button color="basic" mat-dialog-close>Cancel</button>
+
+  <button mat-flat-button color="primary" cdkFocusInitial (click)="submit()">
+    Create
+  </button>
+</div>
