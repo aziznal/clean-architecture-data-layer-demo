@@ -1,6 +1,16 @@
-<h1>
-  Fruit Shop
-</h1>
+<h1>Fruit Shop</h1>
 
 <!-- Grid of cards -->
-<div></div>
+<div class="fruit-grid">
+  <div *ngFor="let fruit of fruits">
+    <div class="fruit-card">
+      <img [src]="fruit.thumbnailUrl" [alt]="fruit.description" />
+
+      <div class="fruit-card-content">
+        <h2>{{ fruit.name }}</h2>
+        <p>{{ fruit.description }}</p>
+        <p class="fruit-card-price">{{ fruit.pricePerKilo | currency }} / KG</p>
+      </div>
+    </div>
+  </div>
+</div>
