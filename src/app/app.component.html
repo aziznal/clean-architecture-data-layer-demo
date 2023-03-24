@@ -1,5 +1,9 @@
 <h1>Fruit Shop</h1>
 
+<button mat-flat-button color="primary" (click)="openNewFruitDialog()">
+  Create Fruit
+</button>
+
 <!-- Grid of cards -->
 <div class="fruit-grid">
   <div *ngFor="let fruit of fruits">

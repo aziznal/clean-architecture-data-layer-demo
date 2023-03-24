@@ -30,8 +30,6 @@ export class AppComponent {
     this.getFruitUsecase.execute().then((fruits) => {
       this.fruits = fruits;
     });
-
-    this.openNewFruitDialog();
   }
 
   openNewFruitDialog() {
